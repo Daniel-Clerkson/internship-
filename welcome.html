@@ -25,9 +25,9 @@
             </div>
             <p class="welcome-body max-w-md mx-auto mt-5 text-lg text-gray-600">
             </p>
-            <div class="flex flex-col mt-8 space-y-3 sm:space-y-0 sm:flex-row sm:justify-center sm:-mx-2">
-              <a href="personal_details.html" class="welcome-button px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md sm:mx-2 hover:bg-orange-600 focus:outline-none focus:bg-orange-500">
-                Let's Go
+            <div class="button-container flex flex-col mt-8 space-y-3 sm:space-y-0 sm:flex-row sm:justify-center sm:-mx-2">
+              <a href="personal_details.html" class="">
+                
               </a>
             </div>
           </div>
@@ -74,13 +74,12 @@
 <script>
   const welcomeIntro = document.querySelector('.welcome-intro');
   const welcomeBody = document.querySelector('.welcome-body');
-  const welcomeButton = document.querySelector('.welcome-button');
 
   const contents = [
     'Welcome on board!',
     'We are pleased to have you start your tech journey with us at STEMLAB NG. Now is the Time !'
   ]
-  const typeText = (element, text) => {
+  const typeText = (element, text, time) => {
     let index = 0;
 
     function type() {
@@ -89,25 +88,31 @@
         index++;
       }
     }
-    setInterval(type, 100);
+    setInterval(type, time);
   }
-  typeText(welcomeIntro, contents[0]);
+  typeText(welcomeIntro, contents[0], 100);
+  
   setTimeout(() => {
-    typeText(welcomeBody, contents[1]);
-  }, 2000)
+    typeText(welcomeBody, contents[1], 50);
+  }, 2500)
 
-  const aTag = document.createElement('a');
-  aTag.setAttribute('href', 'personal_details.html');
-
-  const toggleAnimate = (arr) => {
-    function toggleNext() {
-      if (index < arr.length ) {
-        typeText();
-      } else {
-        type
-      }
-    }
+  const animateButton = () => {
+    const buttonContainer = document.querySelector('.button-container');
+    const aTag = document.createElement('a');
+    aTag.setAttribute('href', 'personal_details.html');
+    aTag.setAttribute('class', 'welcome-button px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition ease-in-out delay-150 scale-0 bg-orange-500 duration-700');
+    aTag.textContent = "Let's Go";
+    buttonContainer.append(aTag);
   }
+
+  setTimeout(() => {
+    animateButton();
+    setTimeout(() => {
+      const welcomeButton = document.querySelector('.welcome-button');
+      welcomeButton.classList.remove('scale-90');
+      welcomeButton.classList.add('scale-110');
+    }, 600)
+  }, 7000);
 
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
