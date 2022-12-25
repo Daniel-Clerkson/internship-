@@ -39,16 +39,12 @@
           <!-- Progress Header Ends here -->
 
           <!-- Progress Content starts here -->
-          <main class="carousel relative w-full max-w-md mb-auto bg-white rounded-md">
+          <main class="carousel relative w-full h-full max-w-md mb-auto bg-white rounded-md">
 
             <!-- Slider 1 starts here -->
-            <div id="slide1" class="hidden carousel-item relative flex flex-col items-center gap-4 w-full h-full bg-white py-3 rounded-md">
+            <div id="slide1" class="carousel-item relative flex flex-col items-center gap-4 w-full h-full bg-white py-3 rounded-md">
               <h3 class="w-full flex justify-between items-center font-semibold text-center text-blue-900 pb-4 px-6">
                 <span class='flex w-full justify-center text-2xl'>Contact Information</span>
-                <button type='button' class='next-btn block text-lg' onclick="goToPage('2')">
-                  <span><i class='fa fa-arrow-right'></i></span>
-                  <span class='sr-only'>Page 2</span>
-                </button>
               </h3>
               <div class='flex flex-col w-full items-center gap-3 md:gap-5 px-5 mb-auto'>
                 <div class="relative w-full max-w-sm">
@@ -66,7 +62,7 @@
                       placeholder="Full Name">
                   </div>
                 </div>
-            
+
                 <div class="relative w-full max-w-sm">
                   <label for='phone' class="block mb-2 text-sm font-medium text-blue-900">Phone</label>
                   <div class="relative w-full max-w-sm">
@@ -111,7 +107,12 @@
                       placeholder="Address">
                   </div>
                 </div>
+              </div>
 
+              <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white pb-4 px-6">
+                <button type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1' onclick="goToPage('2')">
+                  <span>Next</span>
+                </button>
               </div>
             </div>
             <!-- Slider 1 ends here -->
@@ -119,15 +120,7 @@
             <!-- Slider 2 starts here -->
             <div id="slide2" class="carousel-item relative flex flex-col items-center gap-4 w-full h-full bg-white py-3 rounded-md">
               <h3 class="w-full flex justify-between items-center font-semibold text-center text-blue-900 pb-4 px-6">
-                <button type='button' class='block text-lg' onclick="goToPage('1')">
-                  <span><i class='fa fa-arrow-left'></i></span>
-                  <span class='sr-only'>Page 1</span>
-                </button>
                 <span class='flex w-full justify-center text-2xl'>Personal Details</span>
-                <button type='button' class='next-btn block text-lg' onclick="goToPage('3')">
-                  <span><i class='fa fa-arrow-right'></i></span>
-                  <span class='sr-only'>Page 3</span>
-                </button>
               </h3>
               <div class='flex flex-col w-full items-center gap-3 md:gap-5 px-5'>
                 <div class="relative w-full max-w-sm">
@@ -165,24 +158,24 @@
                   </label>
                 </div>
               </div>
+              <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white pb-4 px-6">
+                <button type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1' onclick="goToPage('1')">
+                  <span>Prev</span>
+                </button>
+                <button type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1' onclick="goToPage('3')">
+                  <span>Next</span>
+                </button>
+              </div>
             </div>
             <!-- Slider 2 ends here -->
 
             <!-- Slider 3 starts here -->
             <div id="slide3" class="carousel-item relative flex flex-col items-center gap-4 w-full h-full bg-white py-3 rounded-md">
               <h3 class="w-full flex justify-between items-center font-semibold text-center text-blue-900 pb-4 px-6">
-                <button type='button' class='block text-lg' onclick="goToPage('2')">
-                  <span><i class='fa fa-arrow-left'></i></span>
-                  <span class='sr-only'>Page 2</span>
-                </button>
                 <span class='flex w-full justify-center text-2xl'>Course</span>
-                <button type='button' class='next-btn block text-lg' onclick="goToPage('4')">
-                  <span><i class='fa fa-arrow-right'></i></span>
-                  <span class='sr-only'>Page 4</span>
-                </button>
               </h3>
-              <div class='flex flex-col w-full items-center gap-3 md:gap-5 px-5'>
-                <div class="relative w-full max-w-sm">
+              <div class='flex flex-col w-full h-full items-center gap-3 md:gap-5 px-5'>
+                <div class="relative w-full max-w-sm mb:auto h-auto">
                   <h4 for="about" class="block mb-2 text-lg font-semibold text-blue-900">What do you want to learn?</h4>
                   <div class='flex flex-col gap-2 text-gray-600'>
                     <div class='flex items-center'>
@@ -206,6 +199,14 @@
                       <label for="web-dev" class="ml-1 font-medium ">Data Science (N60,000)</label>
                     </div>
                   </div>
+                </div>
+                <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white pb-4 px-6">
+                  <button type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1' onclick="goToPage('2')">
+                    <span>Prev</span>
+                  </button>
+                  <button type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1' onclick="goToPage('4')">
+                    <span>Next</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -235,9 +236,9 @@
                   </div>
                 </div>
 
-                <div class="relative w-full max-w-sm">
+                <div class="relative w-full h-full max-w-sm">
                   <h4 for="about" class="block mb-2 text-lg font-semibold text-blue-900">Mode of payment</h4>
-                  <div class='flex flex-col gap-2 text-gray-600'>
+                  <div class='flex flex-col gap-2 text-gray-600 h-full'>
                     <div class='flex items-baseline'>
                       <input id="bank-pay" type="radio" value='bank' name='payment-mode' value="" class="">
                       <label for="bank-pay" class="ml-1 font-medium">Bank</label>
@@ -251,11 +252,15 @@
                       <label for="other-pay" class="ml-1 font-medium ">Other</label>
                     </div>
                   </div>
+                  <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white pb-4 px-6">
+                    <button type='submit' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1'>
+                      <span>Register</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- Slider 4 ends here -->
-
           </main>
           <!-- Progress Content ends here -->
           <footer class="relative">
@@ -316,133 +321,131 @@
       </div>
     </div>
 
-  <script>
-    
-    const goToPage = (page) => {
-      window.location.href = `http://127.0.0.1:5500/personal_details.html#slide${page}`;
-    }
-    
-    function checkCondition(nodeList, condition) {
-      for (let i = 0; i < nodeList.length; i++) {
-        if (!condition(nodeList[i])) {
-          return false;
-        }
+    <script>
+      const goToPage = (page) => {
+        window.location.href = `http://127.0.0.1:5500/personal_details.html#slide${page}`;
       }
-      return true;
-    }
-
-    const enableGoNext = () => {
-      // slide1 Controls
-      // const slide1 = document.querySelector('#slide1');
-      // const slide1Inputs = slide1.querySelectorAll('input');
-      // const slide1Condition = node => node.value.length !== 0;
-      // const slide1NextBtn = slide1.querySelector('.next-btn');
-      // slide1NextBtn.disabled = true;
-      // slide1Inputs.forEach(input => {
-      //   input.addEventListener('keyup', (e) => {
-      //     const slide1Result = checkCondition(slide1Inputs, slide1Condition);
-      //     if (slide1Result) {
-      //       slide1NextBtn.disabled = false;
-      //       slide1NextBtn.classList.add('text-orange-500');
-      //       slide1NextBtn.classList.remove('text-blue-900');
-      //     } else {
-      //       slide1NextBtn.disabled = true;
-      //       slide1NextBtn.classList.add('text-blue-900');
-      //       slide1NextBtn.classList.remove('text-orange-500');
-      //     }
-      //   })
-      // })
-
-      // slide2 Controls
-      const slide2 = document.querySelector('#slide2');
-      const slide2Inputs = slide2.querySelectorAll('input');
-      console.log(slide2Inputs);
-
-      const slide2FileCondition = (node) => {
-        console.log(node.value !== '');
-        console.log('Gehbewn;l')
-        return node.value !== '' && checkCondition(slide2Inputs, slide2OtherInputCondition);
-      };
-
-      const slide2OtherInputCondition = (node) => {
-        console.log(node.value.length !== 0)
-        return node.value.length !== 0 && checkCondition([slide2Inputs[slide2Inputs.length-1]], slide2FileCondition);
-      };
-
-      const slide2NextBtn = slide2.querySelector('.next-btn');
-        slide2Inputs.forEach((input, index, arr) => {
-          const fileInput = arr[arr.length-1];
-          console.log(fileInput);
-          console.log(input);
-          if (arr[input] === fileInput) {
-            console.log(fileInput);
-            console.log('Changed!');
-            fileInput.addEventListener('change', (e) => {
-              const slide2Result1 = checkCondition(e.target, slide2FileCondition);
-              if (slide2Result1) {
-                console.log(slide2Result1);
-                slide2NextBtn.disabled = false;
-                slide2NextBtn.classList.add('text-orange-500');
-                slide2NextBtn.classList.remove('text-blue-900');
-              } else {
-                console.log('False');
-                slide2NextBtn.disabled = true;
-              }
-            })
-          } else {
-            input.addEventListener('keyup', (e) => {
-              const slide2Result2 = checkCondition(slide2Inputs, slide2OtherInputCondition);
-              console.log('hello')
-              if (slide2Result2) {
-                console.log('hello');
-                slide2NextBtn.disabled = false;
-                slide2NextBtn.classList.add('text-orange-500');
-                slide2NextBtn.classList.remove('text-blue-900');
-              } else {
-                console.log('False');
-                slide2NextBtn.disabled = true;
-              }
-            })
+      
+      function checkCondition(nodeList, condition) {
+        for (let i = 0; i < nodeList.length; i++) {
+          if (!condition(nodeList[i])) {
+            return false;
           }
+        }
+        return true;
+      }
+
+      const enableGoNext = () => {
+        // slide1 Controls
+        const slide1 = document.querySelector('#slide1');
+        const slide1Inputs = slide1.querySelectorAll('input');
+        const slide1Condition = node => node.value.length !== 0;
+        const slide1NextBtn = slide1.querySelector('.next-btn');
+        slide1NextBtn.disabled = true;
+        slide1Inputs.forEach(input => {
+          input.addEventListener('keyup', (e) => {
+            const slide1Result = checkCondition(slide1Inputs, slide1Condition);
+            if (slide1Result) {
+              slide1NextBtn.disabled = false;
+              slide1NextBtn.classList.add('text-orange-500');
+              slide1NextBtn.classList.remove('text-blue-900');
+            } else {
+              slide1NextBtn.disabled = true;
+              slide1NextBtn.classList.add('text-blue-900');
+              slide1NextBtn.classList.remove('text-orange-500');
+            }
+          })
+        })
+
+        // slide2 Controls
+        const slide2 = document.querySelector('#slide2');
+        const slide2Inputs = slide2.querySelectorAll('input');
+        console.log(slide2Inputs);
+
+        const slide2FileCondition = (node) => {
+          console.log(node.value !== '');
+          console.log('Gehbewn;l')
+          return node.value !== '' && checkCondition(slide2Inputs, slide2OtherInputCondition);
+        };
+
+        const slide2OtherInputCondition = (node) => {
+          console.log(node.value.length !== 0)
+          return node.value.length !== 0 && checkCondition([slide2Inputs[slide2Inputs.length-1]], slide2FileCondition);
+        };
+
+        const slide2NextBtn = slide2.querySelector('.next-btn');
+          slide2Inputs.forEach((input, index, arr) => {
+            const fileInput = arr[arr.length-1];
+            console.log(fileInput);
+            console.log(input);
+            if (arr[input] === fileInput) {
+              console.log(fileInput);
+              console.log('Changed!');
+              fileInput.addEventListener('change', (e) => {
+                const slide2Result1 = checkCondition(e.target, slide2FileCondition);
+                if (slide2Result1) {
+                  console.log(slide2Result1);
+                  slide2NextBtn.disabled = false;
+                  slide2NextBtn.classList.add('text-orange-500');
+                  slide2NextBtn.classList.remove('text-blue-900');
+                } else {
+                  console.log('False');
+                  slide2NextBtn.disabled = true;
+                }
+              })
+            } else {
+              input.addEventListener('keyup', (e) => {
+                const slide2Result2 = checkCondition(slide2Inputs, slide2OtherInputCondition);
+                console.log('hello');
+                if (slide2Result2) {
+                  console.log('hello');
+                  slide2NextBtn.disabled = false;
+                  slide2NextBtn.classList.add('text-orange-500');
+                  slide2NextBtn.classList.remove('text-blue-900');
+                } else {
+                  console.log('False');
+                  slide2NextBtn.disabled = true;
+                }
+              })
+            }
+          });
+
+        // slide3 Controls
+        const slide3 = document.querySelector('#slide3');
+        const slide3Inputs = slide3.querySelectorAll('input');
+        const slide3Condition = node => node.value.length !== 0;
+        const slide3NextBtn = slide3.querySelector('.next-btn');
+        slide3Inputs.forEach(input => {
+          input.addEventListener('keyup', (e) => {
+            const slide3Result = checkCondition(slide3Inputs, slide3Condition);
+            if (slide3Result) {
+              console.log('hello');
+              slide3NextBtn.disabled = false;
+              slide3NextBtn.classList.add('text-orange-500');
+              slide3NextBtn.classList.remove('text-blue-900');
+            } else {
+              console.log('False');
+              slide3NextBtn.disabled = true;
+            }
+          })
+        })
+      }
+
+      enableGoNext();
+
+      const textFields = document.querySelectorAll('.text-field');
+      textFields.forEach(textField => {
+        const currentInputIcon = textField.parentElement.querySelector('.form-icon');
+        textField.addEventListener('focus', (e) => {
+          currentInputIcon.classList.remove('text-gray-500');
+          currentInputIcon.classList.add('text-orange-500');
         });
 
-      // slide3 Controls
-      const slide3 = document.querySelector('#slide3');
-      const slide3Inputs = slide3.querySelectorAll('input');
-      const slide3Condition = node => node.value.length !== 0;
-      const slide3NextBtn = slide3.querySelector('.next-btn');
-      slide3Inputs.forEach(input => {
-        input.addEventListener('keyup', (e) => {
-          const slide3Result = checkCondition(slide3Inputs, slide3Condition);
-          if (slide3Result) {
-            console.log('hello');
-            slide3NextBtn.disabled = false;
-            slide3NextBtn.classList.add('text-orange-500');
-            slide3NextBtn.classList.remove('text-blue-900');
-          } else {
-            console.log('False');
-            slide3NextBtn.disabled = true;
-          }
+        textField.addEventListener('blur', (e) => {
+          currentInputIcon.classList.remove('text-orange-500');
+          currentInputIcon.classList.add('text-gray-500');
         })
       })
-    }
-
-    enableGoNext();
-
-    const textFields = document.querySelectorAll('.text-field');
-    textFields.forEach(textField => {
-      const currentInputIcon = textField.parentElement.querySelector('.form-icon');
-      textField.addEventListener('focus', (e) => {
-        currentInputIcon.classList.remove('text-gray-500');
-        currentInputIcon.classList.add('text-orange-500');
-      });
-
-      textField.addEventListener('blur', (e) => {
-        currentInputIcon.classList.remove('text-orange-500');
-        currentInputIcon.classList.add('text-gray-500');
-      })
-    })
-  </script>
+    </script>
   </body>
-
 </html>
