@@ -357,45 +357,54 @@
       const slide2 = document.querySelector('#slide2');
       const slide2Inputs = slide2.querySelectorAll('input');
       console.log(slide2Inputs);
-      const slide2Condition = (node) => {
-        if (node[1].type === 'file') {
-          console.log(node.value !== '')
-          return node.value !== '' && checkCondition(slide2Inputs, slide2Condition);
-        } else {
-          return node.value.length !== 0 && node[0];
-        }
+
+      const slide2FileCondition = (node) => {
+        console.log(node.value !== '');
+        console.log('Gehbewn;l')
+        return node.value !== '' && checkCondition(slide2Inputs, slide2OtherInputCondition);
+      };
+
+      const slide2OtherInputCondition = (node) => {
+        console.log(node.value.length !== 0)
+        return node.value.length !== 0 && checkCondition([slide2Inputs[slide2Inputs.length-1]], slide2FileCondition);
       };
 
       const slide2NextBtn = slide2.querySelector('.next-btn');
         slide2Inputs.forEach((input, index, arr) => {
           const fileInput = arr[arr.length-1];
           console.log(fileInput);
-          fileInput.addEventListener('change', (e) => {
-          console.log('Changed!');
-          const slide2Result1 = checkCondition(e.target, slide2Condition);
-          if (slide2Result1) {
-            console.log(slide2Result1);
-            slide2NextBtn.disabled = false;
-            slide2NextBtn.classList.add('text-orange-500');
-            slide2NextBtn.classList.remove('text-blue-900');
+          console.log(input);
+          if (arr[input] === fileInput) {
+            console.log(fileInput);
+            console.log('Changed!');
+            fileInput.addEventListener('change', (e) => {
+              const slide2Result1 = checkCondition(e.target, slide2FileCondition);
+              if (slide2Result1) {
+                console.log(slide2Result1);
+                slide2NextBtn.disabled = false;
+                slide2NextBtn.classList.add('text-orange-500');
+                slide2NextBtn.classList.remove('text-blue-900');
+              } else {
+                console.log('False');
+                slide2NextBtn.disabled = true;
+              }
+            })
           } else {
-            console.log('False');
-            slide2NextBtn.disabled = true;
+            input.addEventListener('keyup', (e) => {
+              const slide2Result2 = checkCondition(slide2Inputs, slide2OtherInputCondition);
+              console.log('hello')
+              if (slide2Result2) {
+                console.log('hello');
+                slide2NextBtn.disabled = false;
+                slide2NextBtn.classList.add('text-orange-500');
+                slide2NextBtn.classList.remove('text-blue-900');
+              } else {
+                console.log('False');
+                slide2NextBtn.disabled = true;
+              }
+            })
           }
-          input.addEventListener('keyup', (e) => {
-            const slide2Result2 = checkCondition(slide2Inputs, slide2Condition);
-            if (slide2Result2) {
-              console.log('hello');
-              slide2NextBtn.disabled = false;
-              slide2NextBtn.classList.add('text-orange-500');
-              slide2NextBtn.classList.remove('text-blue-900');
-            } else {
-              console.log('False');
-              slide2NextBtn.disabled = true;
-            }
-          })
         });
-      })
 
       // slide3 Controls
       const slide3 = document.querySelector('#slide3');
