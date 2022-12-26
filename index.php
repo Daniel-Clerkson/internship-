@@ -17,13 +17,8 @@
   <div class="bg-center bg-cover h-screen" style="background-image: url(assets/2.jpeg)">
     <div class="bg-blue-900 bg-opacity-50 h-screen">
       <div class="h-16"></div>
-<<<<<<< HEAD
-      <section class="max-w-md p-6 pb lg:max-w-md  mt-28 lg:mt-0  mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-        <section class="bg-white">
-=======
       <section class="w-full max-w-sm p-6 px-5 lg:max-w-md  mt-28 lg:mt-0  mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <section class="bg-white ">
->>>>>>> 2780054ecc68806ec8dabedb7a8c1155f50875d1
           <div class="max-w-3xl px-6 py-16 mx-auto text-center">
             <div class="">
               <h1 class="welcome-intro max-w-4xl font-bold text-4xl text-center text-blue-900 text-left"></h1>
@@ -31,7 +26,7 @@
             <p class="welcome-body max-w-md mx-auto mt-5 text-lg text-gray-600">
             </p>
             <div class="button-container flex flex-col mt-8 space-y-3 sm:space-y-0 sm:flex-row sm:justify-center sm:-mx-2">
-              <a href="personal_details.html" class="">
+              <a href="personal_details.php" class="">
                 
               </a>
             </div>
@@ -104,7 +99,7 @@
   const animateButton = () => {
     const buttonContainer = document.querySelector('.button-container');
     const aTag = document.createElement('a');
-    aTag.setAttribute('href', 'personal_details.html');
+    aTag.setAttribute('href', 'personal_details.php');
     aTag.setAttribute('class', 'welcome-button px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition ease-in-out delay-150 scale-0 bg-orange-500 duration-700');
     aTag.textContent = "Let's Go";
     buttonContainer.append(aTag);

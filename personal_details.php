@@ -1,3 +1,6 @@
+<?php
+include 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,11 +15,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/jquery.min.js"></script>
   </head>
   <body class="">
     <div class="bg-center bg-cover h-screen" style="background-image: url(assets/2.jpeg)">
       <div class="bg-blue-900 bg-opacity-50 flex flex-col justify-center items-center h-screen w-full px-5">
-        <form class="flex flex-col items-center gap-6 w-full h-full max-w-lg">
+        <form id="aform" method="post" enctype="multipart/form-data" class="flex flex-col items-center gap-6 w-full h-full max-w-lg">
           <!-- Progress Header starts here -->
           <header class='flex w-full justify-center pt-4'>
             <div class="w-full flex flex-col items-center gap-2 p-1">
@@ -90,7 +94,7 @@
                           d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
                       </svg>
                     </div>
-                    <input name='email' type="text" id="email" class="text-field bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full pl-10 p-2.5"
+                    <input name='email' type="email" id="email" class="text-field bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full pl-10 p-2.5"
                       placeholder="Email">
                   </div>
                 </div>
@@ -126,19 +130,19 @@
                 <div class="relative w-full max-w-sm">
                   <label for="about" class="block mb-2 text-sm font-medium text-blue-900">Describe
                     Yourself</label>
-                  <textarea type="text" rows='1' name='about' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
+                  <textarea type="text" rows='1' name='aboutyourself' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
                 </div>
               </div>
               <div class='flex flex-col w-full items-center gap-3 md:gap-5 px-5'>
                 <div class="relative w-full max-w-sm">
                   <h4 for="about" class="block mb-2 text-sm font-medium text-blue-900">Do you have any tech skills?</h4>
-                  <textarea type="text" rows='1' name='about' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
+                  <textarea type="text" rows='1' name='techskills' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
                 </div>
               </div>
               <div class='flex flex-col w-full items-center gap-3 md:gap-5 px-5'>
                 <div class="relative w-full max-w-sm">
                   <label for="if-have-skills" class="block mb-2 text-sm font-medium text-blue-900">If yes, tell us about it</label>
-                  <textarea type="text" rows='1' name='if-have-skills' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
+                  <textarea type="text" rows='1' name='abouttechskills' class="bg-transparent border border-gray-300 focus:border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:shadow-lg focus:shadow-orange-100 shadow outline-none block w-full p-2.5" placeholder="Please, tell us about yourself..."></textarea>
                 </div>
               </div>
               <div class="w-full px-6 pb-3">
@@ -154,7 +158,7 @@
                       </svg>
                       <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                     </div>
-                    <input id="user-picture" type="file" class="hidden" />
+                    <input id="user-picture" type="file" name="image" class="hidden" />
                   </label>
                 </div>
               </div>
@@ -179,23 +183,23 @@
                   <h4 for="about" class="block mb-2 text-lg font-semibold text-blue-900">What do you want to learn?</h4>
                   <div class='flex flex-col gap-2 text-gray-600'>
                     <div class='flex items-center'>
-                      <input id="web-dev" type="radio" name='skill' value="" class="">
+                      <input id="web-dev" type="radio" name='skill' value="Website Development" class="">
                       <label for="web-dev" class="ml-1 font-medium ">Website Development (N35,000)</label>
                     </div>
                     <div class='flex items-center'>
-                      <input id="web-dev" type="radio" name='skill' value="" class="">
+                      <input id="web-dev" type="radio" name='skill' value="Android Development" class="">
                       <label for="web-dev" class="ml-1 font-medium">Android Development (N45,000)</label>
                     </div>
                     <div class='flex items-center'>
-                      <input id="web-dev" type="radio" name='skill' value="" class="">
+                      <input id="web-dev" type="radio" name='skill' value="Front-End Development" class="">
                       <label for="web-dev" class="ml-1 font-medium ">Front-End Development (N45,000)</label>
                     </div>
                     <div class='flex items-center'>
-                      <input id="web-dev" type="radio" name='skill' value="" class="">
+                      <input id="web-dev" type="radio" name='skill' value="Back-End Development" class="">
                       <label for="web-dev" class="ml-1 font-medium ">Back-End Development (N60,000)</label>
                     </div>
                     <div class='flex items-center'>
-                      <input id="web-dev" type="radio" name='skill' value="" class="">
+                      <input id="web-dev" type="radio" name='skill' value="Data Science" class="">
                       <label for="web-dev" class="ml-1 font-medium ">Data Science (N60,000)</label>
                     </div>
                   </div>
@@ -226,36 +230,37 @@
                   <h4 for="about" class="block mb-2 text-lg font-semibold text-blue-900">How do you want join?</h4>
                   <div class='flex flex-col gap-2 text-gray-600'>
                     <div class='flex items-baseline'>
-                      <input id="physical-join" type="radio" value='physical' name='join-mode' value="" class="">
+                      <input id="physical-join" type="radio" value='physical' name='joinmode' class="">
                       <label for="physical-join" class="ml-1 font-medium">Physical</label>
                     </div>
                     <div class='flex items-baseline'>
-                      <input id="virtual-join" type="radio" value='virtual' name='join-mode' value="" class="">
+                      <input id="virtual-join" type="radio" value='virtual' name='joinmode' class="">
                       <label for="virtual-join" class="ml-1 font-medium ">Virtual (Normal charge plus additional N15,000</label>
                     </div>
                   </div>
                 </div>
 
-                <div class="relative w-full h-full max-w-sm">
+                <div class="relative w-full  max-w-sm">
                   <h4 for="about" class="block mb-2 text-lg font-semibold text-blue-900">Mode of payment</h4>
-                  <div class='flex flex-col gap-2 text-gray-600 h-full'>
+                  <div class='flex flex-col gap-2 text-gray-600'>
                     <div class='flex items-baseline'>
-                      <input id="bank-pay" type="radio" value='bank' name='payment-mode' value="" class="">
+                      <input id="bank-pay" type="radio" value='bank' name='paymentmode' class="">
                       <label for="bank-pay" class="ml-1 font-medium">Bank</label>
                     </div>
                     <div class='flex items-baseline'>
-                      <input id="cash-pay" type="radio" value='cash' name='payment-mode' value="" class="">
+                      <input id="cash-pay" type="radio" value='cash' name='paymentmode' class="">
                       <label for="cash-pay" class="ml-1 font-medium ">Cash</label>
                     </div>
                     <div class='flex items-baseline'>
-                      <input id="other-pay" type="radio" value='other' name='payment-mode' value="" class="">
+                      <input id="other-pay" type="radio" value='other' name='paymentmode' class="">
                       <label for="other-pay" class="ml-1 font-medium ">Other</label>
                     </div>
                   </div>
-                  <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white pb-4 px-6">
-                    <a href="/success.html" type='button' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1'>
-                      <span>Register</span>
-                    </a>
+                  <div id="resp"></div>
+                  <div class="w-full flex gap-3 justify-between items-center font-semibold text-center text-white mt-5 pb-2 px-3">
+                    <button type='submit' class='flex w-full justify-center rounded-md text-lg bg-orange-500 py-1'>
+                      Register
+                    </button>
                   </div>
                 </div>
               </div>
@@ -317,31 +322,14 @@
               </div>
             </div>
           </footer>
-          <div id="popup-modal" tabindex="-1" class="popup-modal fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-            <div class="relative w-full h-full max-w-md md:h-auto">
-                <div class="relative bg-white rounded-lg shadow g-gray-700">
-                    <button type="button" onclick="toggleModal()" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center over:bg-gray-800 over:text-white" data-modal-toggle="popup-modal">
-                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                    <div class="p-6 text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="mx-auto mb-4 text-orange-500 w-14 h-14" fill="currentColor" stroke="currentColor"  viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-                      <p class="mb-5 text-2xl font-normal text-gray-900 ext-gray-400">Congratulations</p>
-                        <h3 class="mb-5 text-lg font-normal text-gray-500 ext-gray-400">You have successfully started your registration kindly check your Email for confirmation mail.</h3>
-                        <p>
-                          Click <a href="https://chat.whatsapp.com/GWXQxEFpQdXKDIEbXr99BG" class="text-orange-500 hover:text-orange-700 underline">Here</a> to join the whatApp group
-                        </p>
-                      </div>
-                </div>
-            </div>
-        </div>
         </form>
+        
       </div>
     </div>
 
     <script>
       const goToPage = (page) => {
-        window.location.href = `http://127.0.0.1:5500/personal_details.html#slide${page}`;
+        window.location.href = `#slide${page}`;
       }
       
       function checkCondition(nodeList, condition) {
@@ -465,5 +453,35 @@
         })
       })
     </script>
+	<script>
+$(document).ready(function () {
+  // submit add book
+  
+  $("#aform").submit(function(e) {
+    e.preventDefault();
+
+    $("#resp").html("");
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: 'signup.php',
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            if(data == 'yes'){
+                window.location.href = "success.php";
+            }else{
+           $("#resp").html(data);
+            }
+          // $("#aform")[0].reset();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
+
+});
+</script>
   </body>
 </html>
